@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+<script src="javascript/" defer></script>
+
+</head>
+<body>
+    <div class="todo-container">
+    <header>
+        <h1>To-do</h1>
+    </header>
+    <form id="todo-form">
+        <p>Adicione uma tarefa</p>
+        <div class="form-control">
+            <input 
+            type="text"
+            id="todo-input"
+            placeholder="Qual a tarefa?"/>
+            <button type="submit">
+                <i class="fa-thin fa-plus"></i>
+            </button>
+        </div>
+    </form>
+    <form id="edit-form" class="hide">
+        <p>Editar tarefa</p>
+        <div class="form-control">
+            <input 
+            type="text"
+            id="edit-input"
+            placeholder="Editar Tarefa"/>
+            <button type="submit">
+                <i class="fa-solid fa-check-double"></i>
+            </button>
+        </div>
+        <button id="cancel-edit-btn">Cancelar</button>
+    </form>
+    <div id="toolbar">
+        <div id="search">
+            <h4>Pesquisar:</h4>
+            <form>
+                <input type="text" id="search-input" placeholder="Pesquisar..."/>
+                <button id="erase-button">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            </form>
+        </div>
+        <div id="filter">
+            <h4>Filtrar:</h4>
+            <select id="filter-select">
+                <option value="all">Todos</option>
+                <option value="done">Concluidos</option>
+                <option value="todo">Pendentes</option>
+            </select>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+/* Geral */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana;
+    color: #333;
+}
+
+body{
+    background-image: url("../imagem/white-concrete-wall.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+button{
+    background-color: #fdfdfd;
+    color: #02000e;
+    border: 2px solid #02000e;
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: #0b6d6a;
+}
+
+button i {
+    pointer-events: none;
+    font-weight: bold;
+}
+
+input,select{
+    padding:  0.25rem 0.5rem;
+}
+
+.hide{
+    display: none;
+}
+
+/*Header*/
+
+.todo-container{
+    max-width: 450px;
+    margin: 3rem auto 0;
+    background-color:#5bcec8 ;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.todo-container header{
+    text-align: center;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #16171b;
+}
+
+/*Forms*/
+#todo-form, #edit-form{
+    padding: 1rem;
+    border-bottom: 1px solid #5bcec8;
+}
+
+#todo-form p, #edit-form p{
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-control{
+    display: flex;
+}
+
+.form-control input{
+    margin-right: 0.3rem;
+}
+
+#cancel-edit-btn{
+    margin-top: 1rem;
+    color: #001413;
+}
