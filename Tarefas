@@ -154,3 +154,138 @@ input,select{
     margin-top: 1rem;
     color: #001413;
 }
+#toolbar{
+    padding:  1rem;
+    border-bottom: 1px solid #000000;
+}
+
+#toolbar h4{
+    margin-bottom: 0.5rem;
+}
+
+#search{
+    display:flex;
+    width: 65%;
+    flex-direction: column;
+    border-right: 1px solid #142c22;
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+
+#search form{
+display :flex;
+}
+
+#search input{
+    width: 100%;
+    margin: 0.3rem;
+}
+
+#filter{
+    display:flex;
+    width: 30%;
+    flex-direction: column;
+}
+
+#filter select{
+    flex: 1;
+}
+
+.todo{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #000000;
+    transition: 0.3s;
+
+}
+
+.todo h3{
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.todo button{
+    margin-left: 0.4rem;
+}
+
+.done{
+    background: rgb(155, 154, 154);
+}
+
+.done h3{
+    color: #001413;
+}
+
+
+// seleção de elementos
+const todoForm = document.querySelector("#todo-form");
+const todoInput = document.querySelector("#todo-input");
+const todoList = document.querySelector("#todo-list");
+const editForm = document.querySelector("#edit-form");
+const editInput= document.querySelector("#edit-input");
+const cancelEditBtn = document.querySelector("#cancel-edit-btn-");
+const searchInput = document.querySelector("#search-input");
+const eraseBtn = document.querySelector("#erase-button");
+const filterSelect = document.querySelector("#filter-select");
+
+// Funções
+const saveTodo = (Text, done = 0, save = 1) =>{
+    const todo = document.createElement("div");
+    todo.classList.add("todo")
+
+    const todoTitle = document.createElement("h3");
+    todo.title.innerNext = Text;
+    todo.appendChild(todoTitle);
+
+    const doneBtn = document.createElement("button");
+    doneBtn.classList.add("finish-todo");
+    doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+    todo.appendChild(doneBtn);
+
+    const editBtn = document.createElement("button");
+    doneBtn.classList.add("edit-todo");
+    doneBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    todo.appendChild(editBtn);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-todo");
+    deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    todo.appendChild(deleteBtn);
+
+    // save state
+    if (done){
+        todo.classList("done")
+    }
+
+   // if (save){
+   //     saveTodoLocalStorage({text, done:0});
+   // }
+
+    todoList.appendChild(todo);
+    todoInput.value = ""
+
+}
+
+
+//Storage
+
+//Eventos
+todoForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+ const inputValue = todoInput.value;
+
+ if (inputValue)
+   saveTodo(inputValue);
+})
+
+//botões
+document.addEventListener("click", (e)=> {
+
+    const targetEl = e.target;
+    const parentEl = targetEl.closest("div");
+    let todoTitle;
+
+    if(parentEl &&)
+})
